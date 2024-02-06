@@ -12,7 +12,7 @@ import PrimaryButton from '@/components/PrimaryButton'
 const Register = () => {
     const { register } = useAuth({
         middleware: 'guest',
-        redirectIfAuthenticated: '/dashboard',
+        redirectIfAuthenticated: '/home',
     })
 
     const [name, setName] = useState('')
