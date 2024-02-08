@@ -1,9 +1,23 @@
 import AppLayout from '@/components/Layouts/AppLayout';
 import { SidebarWithContentSeparator } from '@/components/baseFromMaterialTailwind/SidebarWithContentSeparator';
+import laravelAxios from '@/lib/laravelAxios';
 import { Button } from '@material-tailwind/react';
 import Head from 'next/head';
+import { useEffect } from 'react';
 
 const Dashboard = () => {
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await laravelAxios.get(`api/categories`);
+        console.log(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchCategories();
+  }, []);
+
   return (
     <AppLayout
       header={
