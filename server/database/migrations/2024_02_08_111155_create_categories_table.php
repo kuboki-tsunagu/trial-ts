@@ -19,7 +19,7 @@ return new class extends Migration
 
         Schema::create('secondary_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->foreignId('primary_category_id')->constrained();
             $table->timestamps();
         });
