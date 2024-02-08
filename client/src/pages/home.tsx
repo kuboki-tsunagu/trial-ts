@@ -3,14 +3,18 @@ import { SidebarWithContentSeparator } from '@/components/baseFromMaterialTailwi
 import laravelAxios from '@/lib/laravelAxios';
 import { Button } from '@material-tailwind/react';
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Category, SecondaryCategory } from '../../types/types';
 
 const Dashboard = () => {
+  const [categories, setCategories] = useState<Category[]>([]);
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
         const response = await laravelAxios.get(`api/categories`);
         console.log(response.data);
+        setCategories(response.data);
       } catch (err) {
         console.log(err);
       }
@@ -36,7 +40,7 @@ const Dashboard = () => {
               You're logged in!
             </div>
             <Button>ボタン</Button>
-            <SidebarWithContentSeparator />
+            <SidebarWithContentSeparator categories={categories} />
           </div>
         </div>
       </div>
