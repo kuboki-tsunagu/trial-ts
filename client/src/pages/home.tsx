@@ -1,4 +1,5 @@
 import AppLayout from '@/components/Layouts/AppLayout';
+import { SidebarWithContentSeparator } from '@/components/baseFromMaterialTailwind/SidebarWithContentSeparator';
 import { Button } from '@material-tailwind/react';
 import Head from 'next/head';
 
@@ -21,6 +22,7 @@ const Dashboard = () => {
               You're logged in!
             </div>
             <Button>ボタン</Button>
+            <SidebarWithContentSeparator />
           </div>
         </div>
       </div>
