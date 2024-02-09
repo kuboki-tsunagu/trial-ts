@@ -26,7 +26,7 @@ import { ChevronRightIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { Category } from '../../../types/types';
 
 type Props = {
-  categories: Category[];
+  categories: Category[] | undefined;
 };
 
 export function SidebarWithContentSeparator({ categories }: Props) {
@@ -44,7 +44,7 @@ export function SidebarWithContentSeparator({ categories }: Props) {
         </Typography>
       </div>
       <List>
-        {categories.map((category, index) => (
+        {categories?.map((category, index) => (
           <Accordion
             key={index}
             open={open === index + 1}
