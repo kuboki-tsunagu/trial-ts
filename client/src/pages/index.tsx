@@ -1,14 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/auth';
-import { useQueryClient } from '@tanstack/react-query';
-import { Category } from '../../types/types';
 
 export default function Home() {
   const { user } = useAuth({ middleware: 'guest' });
-
-  const queryClient = useQueryClient();
-  const categories = queryClient.getQueryData<Category[]>(['categories']);
 
   return (
     <>
@@ -53,13 +48,6 @@ export default function Home() {
                 fill="#FF2D20"
               />
             </svg>
-          </div>
-
-          <div>
-            {/* キャッシュから取得した、Task一覧データを、map処理で展開する。 */}
-            {categories?.map(category => (
-              <p key={category.id}>{category.name}</p>
-            ))}
           </div>
 
           <div className="mt-16">
