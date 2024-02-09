@@ -18,6 +18,8 @@ import {
   Cog6ToothIcon,
   InboxIcon,
   PowerIcon,
+  TagIcon,
+  SunIcon,
 } from '@heroicons/react/24/solid';
 import { ChevronRightIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 
@@ -60,7 +62,7 @@ export function SidebarWithContentSeparator({ categories }: Props) {
                 className="border-b-0 p-3">
                 <ListItemPrefix>
                   {/* You can replace this with your actual category icon */}
-                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  <TagIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
                 <Typography color="blue-gray" className="mr-auto font-normal">
                   {category.name}
@@ -85,7 +87,7 @@ export function SidebarWithContentSeparator({ categories }: Props) {
         <hr className="my-2 border-blue-gray-50" />
         <ListItem>
           <ListItemPrefix>
-            <UserCircleIcon className="h-5 w-5" />
+            <SunIcon className="h-5 w-5" />
           </ListItemPrefix>
           ヘルプ
         </ListItem>
